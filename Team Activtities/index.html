@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="inputText">
+    <input type="text" id="numberTwo">
+    <button onClick = "addition()"> Show</button>
+    <button onClick = "additionNumbers()"> +</button>
+    <button onClick = "subtraction()">-</button>
+    <div id="result"></div>
+    <div id="numbers"></div>
+    <div id="numbers2"></div>
+</body>
+<script>
+    function readContent(){
+        let readContent = document.getElementById('inputText').value
+        document.getElementById('result').innerHTML = readContent;
+
+        console.log(readContent);
+
+    }
+
+    function addition(){
+        const input = parseInt(document.getElementById('inputText').value);
+
+        let add = 0;
+        for( let i = 1; i <= input; i++){
+            add = add + i ;
+         
+        }
+        
+         document.getElementById('numbers').innerHTML = add;
+         
+    }
+
+    function additionNumbers(){
+
+        let inputOne = parseInt(document.getElementById('inputText').value);
+        let inputTwo = parseInt(document.getElementById('numberTwo').value);
+        let sumNumbers = inputOne + inputTwo;
+
+        document.getElementById('numbers').innerHTML = sumNumbers;
+
+    }
+
+ 
+
+    let subtraction = function subtractionNumbers(){
+        let inputOne = parseInt(document.getElementById('inputText').value);
+        let inputTwo = parseInt(document.getElementById('numberTwo').value);
+        let subNumbers = inputOne - inputTwo;
+
+        document.getElementById('numbers2').innerHTML = subNumbers;
+
+    }
+    subtractionNumbers();
+
+   
+
+   
+
+
+
+
+
+
+</script>
+</html>
