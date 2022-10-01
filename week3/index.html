@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes week 3</title>
+</head>
+<body>
+
+     <h1>Week 3 Notes</h1>
+     <h3>This</h3>
+     <p><b>What is 'this'?</b> This is a keyword in JS that refers to an object. The way this keyword is used will depend on how we want to call or use it. When we have methods we can use "this" to access the object in a method.
+         Other characteristics "this" is that it can be used in any function. When the keyword "this" is alone, or in a function it refers to a global object. When it is in an event, "this" refers to the element that received the event.When used in an object method, "this" refers to the object.</p>
+
+        <p><b>Example:</b><br>let carModel = {<br>
+                color: "Red",<br>
+                year: 2004,<br>
+                brand: BMW,<br>
+          
+                showCar() {<br>
+                // "this" is the "current object"<br>
+                console.log(this.brand);<br>
+            }<br>
+          
+          };<br>
+          
+          carModel.showCar();</p>
+<p>The value of this is defined at run-time.
+<ol>
+    <ul>When a function is declared, it may use this, but that this has no value until the function is called.</ul>
+    <ul> A function can be copied between objects.</ul>
+    <ul> When a function is called in the “method” syntax: object.method(), the value of this during the call is object.</ul> 
+     
+   <p>A variable is called a property and function is called a method inside an object.</p> 
+   <p>Inside an object we create properties and values to it.</p>
+  </ol></p>
+  <h3>Objects</h3>
+  <p>An object in JavaScript is a self-contained set of related values and functions. They act as a collection of named properties that map to any JavaScript value such as strings, numbers, booleans, arrays and functions. If a property’s value is a function, it is known as a method.One way to think about an object is that it’s like a dictionary where you look up a property name and see a value.Objects are often used to keep any related information and functionality together in the same place.</p>
+  <p><b>Object Literal</b> <br> An object literal is an object that is created directly in the language by wrapping all its properties and methods in curly braces {}. Object literals are a distinguishing feature of the JavaScript language, as they allow objects to be created quickly without the need for defining a class. Each property inside an onject is a key-value pair, separated by commas. All objects are mutable at any time when a program is running. This means that its properties and methods can be changed or removed, and new properties and methods can be added to the object, even if it was declared using <b>const</b>.</p>        
+  <p>To create a new object we just need to add curly braces {} to a declared variable. <br> <br> Example <br> <b>const car = </b>{};</p>
+  <p>ES6 provided a shorthand method of creating objects if a property key is the same as a variable name that the property value is assigned to:</p>
+  <p>Example <br>const name = 'Iron Man';<br>
+    const realName = 'Tony Stark';<br>
+    const ironMan = { name, realName };
+
+  <p>To access the properties of an object  we use the dot notation <br>carModel.brand <br> >> BMW </p>  
+
+  <p> <b>How computed properties works?</b></p>
+
+  <p>To call an object’s method we can also use dot or bracket notation <br> carModel.showCar(); <br>
+ 
+    
+    carModel['showCar']();
+    </p>
+
+    <p>To check whether an object has a particular property we use the <b> in </b>operator  and it will return true or false.<br> "cost" in carModel;<br> false <br>"year" in carModel;<br>true </p>
+    <p><b> hasOwnProperty()</b>. This can be used to check whether an object has a property that is its own, rather than one that has been inherited from another object: <br> car.hasOwnProperty("color"); <br> true</p>
+    <p>hasOwnProperty() method will only return any properties that belong to that particular object, whereas using in or !== undefined will return true, even if the property has been inherited from another object.</p>
+  
+  </p>
+
+  <p><b>Methods to find all the properties of an object</b>
+    <ol>
+      <ul><b>for in loop</b>  to loop through all of an object’s properties and methods</ul>
+      <ul><b>Object.keys()</b> will return an array of all the keys of any object that is provided as an argument. We can then iterate over this array to access all the keys of an object</ul>
+      <ul><b>Object.values()</b> returns an array of all the object's value</ul>
+      <ul><b>Object.entries()</b> returns an array of key-value pairs.</ul>
+    </ol>
+    <p>An object is not an ordered list like an array, set or map, so you should never rely on the properties being in a certain order.</p>
+  </p>
+ <p> To add properties to an object we just call the object with dot and add the new propertie <br>carModel.model = "F20";</p>
+ <p> To edit or change properties from an object we use square brackets <br>carModel["color"]= "blue";</p>
+ <p> To remove or delete properties we use the delete operator <br> <b>delete</b> carModel.color</p>
+
+
+<h3>Document Object Model</h3>
+<p>The Document Object Model, or DOM for short, represents an HTML document as a network of connected nodes that form a tree-like structure.The DOM treats everything on a web page as a node. HTML tags</p>
+<p>The Document Object Model (DOM) allows you to access elements of a web page and enable interaction with the page by adding and removing elements, changing the order, content and attributes of elements, and even altering how they are styled.The DOM is not from JavaScript</p>
+<p><b>Getting Elements</b> the DOM has different methods to access any element on a page.These methods will return a node object or a node list, which is an array-like object. These objects can then be assigned to a variable and be inspected or modified.</p>
+<p>Node type objects have number of properties and methods that we can use to find information about, or modify, from an element.Nodes have a numerical code to signify what type they are</p>
+<ol>Numeric codes for nodeTypes</ol>
+<ul> 1 = element</ul>
+<ul> 2 = attribute</ul>
+<ul> 3 = text </ul>
+<ul> 8 = comment</ul>
+<ul> 9 = body</ul>
+
+
+<ol>DOM shortcut methods</ol>
+<ul>Document.body: returns the body element of a web page, as we saw in the previous example.</ul>
+<ul>Document.images: returns a node list of all the images contained in the document.</ul>
+<ul>Document.links: returns a node list of all the <a> elements and <area> elements that have an href attribute.</ul>
+<ul>Document.anchors: returns a node list of all the <a> elements that have a name attribute.</ul>
+<ul> Document.forms: returns a node list of all the forms in the document.</ul>
+<ul>getElementById(): returns a reference to the element with a unique id attribute that is given as an argument. </ul>
+<ul>getElementsByTagName(): returns a live node list of all the elements with the tag name that is provided as an argument. </ul>
+<ul>getElementsByClassName(): returns a live node list of all elements that have the class name that is supplied as an argument.</ul>
+<ul>document.querySelector(): allows you to use CSS notation to find the first element in the document that matches that matches a CSS selector provided as an argument. </ul>
+<ul>document.querySelectorAll(): uses CSS notation but returns a node list of all the elements in the document that match the CSS query selector.</ul>
+<ul>querySelector(): can be called on any element, rather than just document</ul>
+
+<p>Node objects have a number of properties and methods for navigating around the document tree. Once you have a reference to an element, you can walk along the document tree to find other nodes.</p>
+
+<p><b>Getting and Setting attributes</b><br> All HTML elements have a large number of possible attributes such as 'class', 'id', src, and 'href'. The DOM has numerous getter and setter methods that can be used to view, add, remove or modify the value of any of these attributes.</p>
+
+<ul>The getAttribute(): returns the value of the attribute provided as an argument</ul>
+<ul>The setAttribute(): changes the value of an element’s attributes.</ul>
+<p>If an element does not have an attribute, the setAttribute method can be used to add it to the element.</p>
+
+<p><b>Class name property</b> <br> className property allows the class of an element to be set directly. <br>
+  Example: <br>car.className;<br>
+
+  >> BMW <br>
+
+  In html will be "li class = BMW id=F20 > Car Model>"
+
+<p> The classList property is a list of all the classes an element has. It has a number of methods that make it easier to modify the class of an elemen</p>
+</p>
+
+<h3>Events</h3>
+<p>Events are also part of the DOM and they provides the link between the web page and user interactions.  Every time a user interacts with a web page, such as clicking on a link, pressing a key, or moving a mouse, an event occurs that our program can detect and then respond to. </p>
+<p><b>Event Listeners</b>re like setting a notification to alert you when something happens. The event listener let you know when the event happens and the program can then respond appropriately. This allows the program to continue with other tasks while it waits for the event to happen.JavaScript, uses a non-blocking approach that uses event listeners to listen out for any clicks on the page. Every time the page is clicked, a callback function will be called.The click event occurs when a user clicks with the mouse, presses the Enter key, or taps the screen, making it a very useful all-round event covering many types of interaction. To call an event listener we use the addEventListener() method. This method is called on a node object, the node to which the event listener is being applied.</p>
+<p>Example: <br>
+  document.main.addEventListener("click", doSomething);</p>
+  <p>The addEventListener() method can also be called without a node, in which case it is applied to the global object, usually the whole browser window.</p>
+  <br> 
+  <b>Question: The add event listener should always use the world click as parameter? </b> <br>
+   <b>Question:  How exactly the event object works?</b><br>
+
+   <p><b>Types of Events</b><br><br> The type property returns the type of event that occurred </p>
+
+   <ol>
+
+    <ul><b>target:</b> the target property returns a reference to the node that fired the event</ul>
+    <ul><b>screenX and screenY:</b> show the number of pixels from the left and top of the screen respectively where the event took place.</ul>
+    <ul><b>clientX and clientY:</b> show the number of pixels from the left and top of the client that is being used (usually the browser window).</ul>
+    <ul><b>pageX and pageY:</b> show the number of pixels from the left and top, respectively, where the event took place in the document. This property takes account of whether the page has been scrolled.</ul>
+    <ul><b>dblclick:</b> when the user doubleclicks on the element to which the event listener is attached.</ul>
+    <br>
+    <ul><b>mouse events:</b> the click event that occurs when a mouse button is clicked.</ul>
+    <ul><b>mouseover:</b> when the mouse pointer is placed over the element to which the event listener is attached.</ul>
+    <ul><b>mouseout:</b> when the mouse pointer moves away from an element. </ul>
+    <ul><b>mousemove:</b> whenever the mouse moves.</ul>
+    <br>
+    <ul><b>keydown:</b>when a key is pressed and will continue to occur if the key is held down.</ul>
+    <ul><b>keypress:</b>occurs after a keydown event but before a keyup event. The keypress event only occurs for keys that produce character input (plus the 'Delete' key).It is use to to find out the character that was pressed on the keyboard.</ul>
+    <ul><b>key up:</b>when a key is released.</ul>
+    <br>
+    <ul><b>modifier keys:</b> pressing the modifier keys such as Shift, Ctrl, Alt and meta (Cmd on Mac) will fire the keydown and keyup events, but not the keypress event as they don't produce any characters on the screen.The name of the modifier key is still returned by the key property.The shiftKey, ctrlKey, altKey, and metaKey are all properties of the event object and return true if the relevant key was held down.</ul><br>
+   
+    <ul><b>touchstart:</b> when a user initially touches the surface.They are used to support smarthphones or tablets.</ul>
+    <ul><b>touchmove:</b> occurs after a user has touched the screen then moves around without leaving. </ul>
+    <ul><b>touchenter:</b> occurs when a user has already started touching the surface.</ul>
+    <ul><b>touchleave:</b>  occurs when the user is still touching the surface.</ul>
+    <ul><b>touchcancel:</b>occurs when a touch event is interrupted, such as a user’s finger moving outside the document window, or too many fingers being used at once.</ul>
+   
+   </ol>
+
+ <p><b>Removing Event Listeners</b> An event listener can be removed using the removeEventListener() method. This method makes the click lsitener to only be called once.</p>
+
+<a href="events.html">Week 3 Exercises</a>
+
+</body>
+</html>
