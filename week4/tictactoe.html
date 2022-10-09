@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width, initial-scale=1.0">
+    <style>
+        .cell{
+            display: flex;
+            color: rgb(0, 0, 0);
+            font-size: 2em;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .divBoard{
+            display: grid;
+            grid-template-columns: 100px 100px 100px;
+            grid-template-rows: 100px 100px 100px;
+            cursor: pointer;  
+            position: relative;
+        }
+
+        .right-border{
+            border-right: 1em solid black;
+        }
+
+        .bottom-border{
+            border-bottom: 1em solid black;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="divBoard">
+        <div id="1" class="cell right-border bottom-border"></div>
+        <div id="2" class="cell right-border bottom-border"></div>
+        <div id="3" class="cell bottom-border"></div>
+        <div id="4" class="cell right-border bottom-border"></div>
+        <div id="5" class="cell right-border bottom-border"></div>
+        <div id="6" class="cell bottom-border"></div>
+        <div id="7" class="cell right-border"></div>
+        <div id="8" class="cell right-border"></div>
+        <div id="9" class="cell"></div>
+    </div>
+    <button id="reset">Reset</button>
+    <script>
+        const divBoard = document.querySelector('.divBoard');
+        const resetButton = document.getElementById('reset');
+        const player1 = 'X';
+        const player2 = 'O';
+        let player = player1;
+        function addPiece(e){
+            e.target.innerHTML = player;
+            if (player === player1) player = player2;
+            else player = player1;
+        }
+
+        function resetBoard(){
+            const divBoard = document.querySelector('.divBoard');
+            for (let i = 0; i < divBoard.children.length; i++){
+                divBoard.children[i].innerText = '';
+            }
+            const children = Array.from(divBoard.children);
+            const empty = children.filter(function(child) {
+                return child.innerText == 'X' || child.innerText == 'O';
+            });
+        }
+
+        divBoard.addEventListener('touchend', addPiece);
+        divBoard.addEventListener('click', addPiece);
+        reset.addEventListener('click', resetBoard);
+
+    </script>
+</body>
+</html>
