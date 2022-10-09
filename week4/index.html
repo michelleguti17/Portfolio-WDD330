@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Week4 Notes</h1><br>
+    <h2>Forms <a href="hero.html">Practice</a></h2>
+    <h2>Objected oriented programming</h2>
+    <p>Object-oriented programming (OOP) is a programming paradigm based on the concept of "objects", which can contain data and code: data in the form of fields (often known as attributes or properties), and code, in the form of procedures (often known as methods).The three main concepts in OOP: encapsulation, polymorphism and inheritance.</p>
+    <ol>
+        <ul>Encapsulation: Involves keeping all the programming logic inside an object and making methods available to implement the functionality, without the outside world needing to know how it’s done.</ul>
+        <ul>Polymorphism: It means various objects can share the same method, but also have the ability to override shared methods with a more specific implementation.</ul>
+        <ul>Inheritance: It means we can take an object that already exists and inherit all its properties and methods. We can then improve on its functionality by adding new properties and methods.</ul>
+         <ul> Classes: JavaScript didn't have classes before ES6, and used the concept of using actual objects as the blueprint for creating more objects. This is known as a prototype-based language.</ul>
+    </ol>
+
+    <p><b>Prototypal Inheritance</b><br>JavaScript uses a prototypal inheritance model. This means that every class has a prototype property that is shared by every instance of the class. So any properties or methods of a class’s prototype can be accessed by every object instantiated by that class.</p>
+    <p>Example: <br></p>
+    <p>class Girl {<br>
+        constructor(name) {<br>
+            this.name = name; <br>
+            this.age = '8';<br>
+        } <br>
+        sayHi() { <br>
+            return `Hello, my name is ${this.name}`; <br>
+          } <br>
+        } <br><br>
+     
+        const maria = new Girl('Maria');<br>
+        -- Girl { name: 'Maria' } <br>
+        } <br><br>
+
+        maria.name; <br>
+        -- 'Maria' <br> <br>
+
+       maria.sayHi();<br>
+        --'Hello, my name is Maria'<br>
+    
+    </p>
+
+    <p><b>Public and Private Methods</b><br> By default, an object’s methods are public in JavaScript. The dynamic nature of the language means that an object’s properties and methods can be changed after it has been created. We can use the concept of variable scope to keep some properties and methods private inside of a class declaration. This will prevent them from being accessed or changed. Instead, we will provide a getter method to return the values of any private properties. When the property is created as a variable inside the scope of the constructor function inside the class declaration. This makes it impossible to access outside of this scope.</p>
+    <p><b>Inheritance inside Prototype Chain</b> <br> Prototype is just another object, so it also has its own prototype, which in turn has its own prototype and so on, creating a chain of inheritance. <br> The <b>Object.getPrototypeOf()</b> method recursively. This shows us that the prototype of the prototype is an apparently empty object literal, although it's actually an instance of the  built-in Object() constructor function </p>
+    <p><b>Polymorphism</b><br> The concept of polymorphism means that different objects can have the same method, but implement it in different ways. The <b> Object.prototype </b> object has a <b>toString()</b>  method that is shared by all objects. This means every object created in JavaScript will have a toString() method. Polymorphism means that objects are able to override this method with a more specific implementation. So although every object has a toString() method, the way it’s implemented can vary between different objects</b></p>
+     <p>Exmaple: <br>
+        [a,b,c].toString() <br>
+        -- "a,b,c"
+    </p>
+
+    <p><b>Getters and Setters</b><br>
+        An object property descriptor can have get() and set() methods instead of a value attribute. All objects must have one or the other, they can't have both. The get() and set() methods can be used to control how a property is set using assignment and the value that is returned when a property is queried.</p>
+    
+    <p><b>Creating objects from othe objects</b>The Object() constructor function has a method called create that can be used to create a new object that is an exact copy of the object that is provided as an argument. The object that is provided as the argument acts as the prototype for the new object.</p>
+  <p>Example: <br>
+    const Birds = { <br>
+       wings: 2, <br>
+        legs: 2, <br>
+        fly() { console.log('Flying'); } <br>
+        } <br>
+        const eagle = Object.create(Birds); <br>
+
+        <p>This will create a new object that inherits all the properties and methods from the Birds object:</p>
+         eagle.legs;<br>
+         -- 2
+    
+    </p>
+
+    <p><b>Mixins</b> <br> A mixin is a way of adding properties and methods of some objects to another object without using inheritance.Basic mixin functionality is provided by the <b> Object.assign()</b> method. This will assign to the object provided as the first argument all of the properties from any objects provided as further arguments.</p>
+ <p>> Example: <br>
+    const planet = {}; <br>
+
+    const venus  = { name: 'Venus' }; <br>
+    
+    Object.assign(planet,venus);<br>
+     { name: 'Venus' } <br>
+    
+    planet.name <br>     
+    'Venus'</p>
+       
+  <h2>Modular</h2>
+    <p>A module is a self-contained piece of code that provides functions and methods that can then be used in other files and by other modules. This helps to keep code organized in separate, reusable files, which improves code maintainability. The code in a module should have a single purpose, and group together functions with distinct functionality. </p>
+    <ol>ES6 JavaScript Modules
+        
+        <ul>All code in modules is always in strict mode without the need for 'use strict' and there is no way to opt out of this.</ul>
+        <ul>A module has its own global scope, so any variables created in the top-level of a module can only be accessed within that module.</ul>
+        <ul>The value of this in the top level of a module is undefined, rather than the global object.</ul>
+        <ul>You can't use HTML-style comments in modules (although this isn't very common in any JavaScript program these days).</ul>
+      
+    </ol>
+    
+    
+        <p><b>Questions</b></p>
+  <p>- Is it mandatory to use Constructor functions in OOP? How they work?</p>
+  <p>- Do you have any recommendation or examples to understand better the use of getters and setters?</p>
+  <p>- When is recommended to use mixins to add properties?</p>
+  <p>- Why I got the error "Uncaught SyntaxError: Cannot use import statement outside a module," when I am trying to use a function from a module? 
+</p>
+</body>
+</html>
