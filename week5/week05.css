@@ -1,0 +1,25 @@
+h1 {
+    text-align: center;
+    background-color: cornflowerblue;
+    padding: 2em;
+}
+
+img {
+    max-width: 50%;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+li h2 {
+    grid-column: span 2;
+    text-align: center;
+    background-color: lightblue;
+    padding: 1em;
+}
