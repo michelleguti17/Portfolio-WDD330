@@ -1,5 +1,6 @@
-import { writeToLS } from "./ls.js";
-import { onTouch } from "./utilities.js";
+
+import { readFromLS, writeToLS, bindTouch } from "./utilities.js";
+
 
 let liveToDos = null;
 
@@ -15,7 +16,7 @@ list.forEach(toDo => {
     const formattedDate = newDate(toDo.id).toLocaleDateString("en-US");
     
 let checkbox = null;
-let btn =null;
+let btn = null;
 
 if (hidden && toDo.completed){
     item.innerHTML = ` <label><input type= 'checkbox' checked> <strike> ${toDo.content}</strike></label><button>X</button>`;
@@ -46,7 +47,7 @@ element.appendChild(item);
         
 function getToDos(key){
     if(liveToDos === null){
-        liveToDos = readFromLs(key) || [];
+        liveToDos = readFromLS(key) || [];
     }
 
     return liveToDos;
@@ -74,16 +75,23 @@ function deleteToDo(key){
 }
 
 
-export default class toDos{
+
+function filterTodos(key, completed = true) {
+    let toDos = getToDos(key);
+
+    return toDos.filter(item => item.completed === hidden);
+}
+
+export default class ToDos{
     constructor(listElement, key) {
         this.listElement = listElement;
         this.key = key;
-        onTouch("#addToDo", this.newTodo.bind(this));
-        this.liveToDos();
-    }
+        bindTouch("#addToDo", this.newToDo.bind(this));
+        this.listToDos();
+    } 
 
     newToDo() {
-        const task = document.getElementById('todoInput');
+        const task = document.getElementById("todoInput");
         addToDo(task.value, this.key);
         task.value = "";
         this.listToDos();
@@ -103,7 +111,7 @@ export default class toDos{
 
         if(toDo){
             toDo.completed = !toDo.completed;
-            writeToLs(this.key, liveToDos);
+            writeToLS(this.key, liveToDos);
             renderList(liveToDos, this.listElement, this, true);
         }
     }

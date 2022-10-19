@@ -1,4 +1,11 @@
-const addItems = document.querySelector(".add-items");
+import toDos from "./todos.js";
+
+const list = document.getElementById('todoList');
+const myTodos = new toDos(list, 'todo');
+
+
+
+/*const addItems = document.querySelector(".add-items");
 const taskList = document.querySelector(".task-list");
 const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
@@ -17,4 +24,6 @@ function addItem(event){
     this.reset;
 
     
-}
+
+}*/
+
