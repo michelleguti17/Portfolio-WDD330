@@ -1,4 +1,4 @@
- function qs(selectorName){
+  export function qs(selectorName){
     return document.querySelector(selectorName);
 }
 

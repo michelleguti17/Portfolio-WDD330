@@ -1,5 +1,5 @@
 
-import { readFromLS, writeToLS, bindTouch } from "./utilities.js";
+import { writeToLS, readFromLS, bindTouch } from "./utilities.js";
 
 
 let liveToDos = null;

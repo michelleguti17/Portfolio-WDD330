@@ -1,4 +1,4 @@
-import ToDos from "./todos.js";
+import ToDos from './todos.js';
 
 const list = document.getElementById('todoList');
 const myToDos = new ToDos(list, 'todo');
