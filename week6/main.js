@@ -1,7 +1,7 @@
-import toDos from "./todos.js";
+import ToDos from "./todos.js";
 
 const list = document.getElementById('todoList');
-const myTodos = new toDos(list, 'todo');
+const myToDos = new ToDos(list, 'todo');
 
 
 

@@ -1,5 +1,5 @@
  function qs(selectorName){
-return document.querySelector(selectorName);
+    return document.querySelector(selectorName);
 }
 
 export function readFromLS(key) {
