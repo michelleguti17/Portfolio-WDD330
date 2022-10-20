@@ -1,50 +1,58 @@
 
-import { writeToLS, readFromLS, bindTouch } from "./utilities.js";
+import { readFromLS , writeToLS } from "./ls.js";
+
+import { onTouch } from "./utilities.js";
 
 
 let liveToDos = null;
 
 
-function renderList(list, element, toDos, hidden){
-    console.log(list);
-    element.innerHTML = "";
+function renderList(list, element, toDos, hidden) {
+        console.log(list);
+        element.innerHTML = "";
 
 
-
-list.forEach(toDo => {
-    const item = document.createElement("li");
-    const formattedDate = newDate(toDo.id).toLocaleDateString("en-US");
-    
-let checkbox = null;
-let btn = null;
-
-if (hidden && toDo.completed){
-    item.innerHTML = ` <label><input type= 'checkbox' checked> <strike> ${toDo.content}</strike></label><button>X</button>`;
-}
-else {
-    item.innerHTML = `<label><input type= 'checkbox'  ${toDo.content} </label><button>X</button>` ;
-}
-
-checkbox = item.childNodes[0].childNodes[0];
-
-if(checkbox){
-     checkbox.addEventListener("change", function(){
-        toDos.completeToDo(toDo.id);
-     });
-}
-
-btn = item.childNodes[1];
-if(btn){
-    checkbox.addEventListener("click", function(){
-       toDos.removeToDo(toDo.id);
-    });
-}
-
-element.appendChild(item);
-});  
-
-}
+    list.forEach(toDo => {
+        const item = document.createElement("li");
+        const formattedDate = new Date(toDo.id).toLocaleDateString("en-US");
         
+    let checkbox = null;
+    let btn = null;
+
+    if (hidden && toDo.completed){
+        item.innerHTML = `<label><input type= 'checkbox' checked><strike> ${toDo.content}</strike></label><button>X</button>`;
+    }
+    else {
+        item.innerHTML = `<label><input type= 'checkbox'>  ${toDo.content}</label><button>X</button>`;
+    }
+
+    checkbox = item.childNodes[0].childNodes[0];
+
+    if(checkbox){
+        checkbox.addEventListener("change", function(){
+            toDos.completeToDo(toDo.id);
+            
+        });
+  
+  
+    }
+          
+
+    btn = item.childNodes[1];
+    if(btn){
+        btn.addEventListener("click", function(){
+        toDos.removeToDo(toDo.id);
+        });
+    }
+
+    
+
+    element.appendChild(item);
+    });  
+
+}
+
+
 function getToDos(key){
     if(liveToDos === null){
         liveToDos = readFromLS(key) || [];
@@ -53,22 +61,22 @@ function getToDos(key){
     return liveToDos;
 }
 
-function addToDo(key){
+function addToDo(value, key){
     const newToDo = {
         id: new Date(),
         content: value,
-        completed:false       
+        completed: false       
 
-        };
+    };
 
    liveToDos.push(newToDo);
-   writeToLS(key,liveToDos);     
+   writeToLS(key, liveToDos);     
     
     } 
 
 function deleteToDo(key){
 
-    let newList= liveToDos.filter(item => item.id != key);
+    let newList = liveToDos.filter(item => item.id != key);
     liveToDos = newList;
     writeToLS(key, liveToDos);
 
@@ -82,11 +90,14 @@ function filterTodos(key, completed = true) {
     return toDos.filter(item => item.completed === hidden);
 }
 
-export default class ToDos{
+export default class ToDos {
     constructor(listElement, key) {
+        console.log(this.listElement);
         this.listElement = listElement;
+        console.log(this.listElement);
+       
         this.key = key;
-        bindTouch("#addToDo", this.newToDo.bind(this));
+        onTouch("#addToDo", this.newToDo.bind(this));
         this.listToDos();
     } 
 
@@ -99,9 +110,10 @@ export default class ToDos{
     }
 
     findTodo(id){
-        let toDo = liveToDos.find(element => {
+        let toDo = liveToDos.find( element => {
             return element.id === id;
         });
+
         return toDo;
     }
 
@@ -112,7 +124,7 @@ export default class ToDos{
         if(toDo){
             toDo.completed = !toDo.completed;
             writeToLS(this.key, liveToDos);
-            renderList(liveToDos, this.listElement, this, true);
+            renderList(liveToDos, this.listElement,this, true);
         }
     }
 
@@ -121,9 +133,8 @@ export default class ToDos{
         let toDo = this.findTodo(id);
 
         if(toDo){
-              deleteToDo(id);
-              renderList(liveToDos, this.listElement, this, true);
-              
+            deleteToDo(id);
+            renderList(liveToDos, this.listElement,this, true);
         }
     }
 

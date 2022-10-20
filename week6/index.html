@@ -6,26 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To do list</title>
     <link rel="stylesheet" href="main.css">
-
+    <script src="./main.js" type="module"></script>
 </head>
 <header>
-   <h1> To do list</h1>
+  
 </header>
 
 <body>
-     <ul class="todoList">
-     </ul>
-   
-        <input type="text" id="todoInput" placeholder="New Task"/>
-   <!--<input type="text" name="task" placeholder="New Task" required />--> 
+    <form id="addItems"> 
+    <h1 id="title"> To do list</h1>
+     <ul id="todoList"> </ul>
+    <input type="text" id="todoInput" placeholder="New Task"/>
     <button id="addToDo">Add</button>
-   
-   <!--<form class="addItems">
+ 
+    <div id =btn-section>
+        <button class="ft-button" type="button">All</button>
+    <button class="ft-button" type="button">Active</button>
+    <button class="ft-button" type="button">Completed</button>
+    </div>
+
+     
 </form>
-<footer> <button type="button">All.</button>
-    <button type="button">Active.</button>
-    <button type="button">Completed.</button>   </footer>--> 
-    
 </body>
-<script src="main.js" type="module"></script>
+
 </html>
