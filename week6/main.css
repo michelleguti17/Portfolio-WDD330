@@ -1,31 +1,85 @@
-form{
+#addItems{
+ 
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 200px;
+  grid-template-rows: repeat(6, 1fr);
+  justify-content: center;
     background-image: url("/week6/notesimage.jpg");
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     width: 400px;
-    height:600px;
+    height:500px;
     border:solid 2px rgb(41, 33, 33);
-    padding:10px;
+    
     background-repeat: no-repeat;   
   background-size: cover;
 
-    
+}
+#btn-section{
+ 
+  position: fixed;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+
 }
 
-.ft-button, #addToDo{
-  align-items: center;
+.newTask{
+  
+  position: fixed;
+  left: 50%;
+  top: 60%;
+  transform: translate(-50%, -50%);
+
+ 
+
+
+  }
+  
+
+
+.ft-button {
+
+  margin-top: 9.5em;
+  padding:10px;
+ 
   background-color: rgb(33, 124, 215);
   color:white;
   border: 1px solid white;
   border-radius: 2px;
 }
 
-#btn-section{
- align-items: center;
-  margin: 0.5em;
-  padding:5px;
+.ft-button:hover{
+  background-color:rgb(33, 60, 168);
+  transform:scale(1.1);
   
-  flex-direction: row;
+}
+#todoInput{
+  height:30px;
+
+  
+}
+
+
+#addToDo , .x{
+
+  background-color: rgb(33, 124, 215);
+  color:white;
+  border: 1px solid white;
+  border-radius: 2px;
+  margin-left: 0.3em;
+  padding:5px;
+ 
+
+}
+#addToDo{
+  height: 40px;
+}
+
+.x:hover{
+  background-color: red;
+  transform:scale(1.2);
+  
 }
 
 #title {
@@ -34,23 +88,43 @@ form{
 
 }
 
+ul {
+ 
+  list-style-type: none;
+margin: 0 auto;
+  font-size: 20px;
+  position: relative;
+  display: block;
+width: 100%;
+height:100%;
+ 
+}
+ul li{
+  margin:5px;
+}
+
+label{
+ justify-content: left;
+ margin-left: -2.2em;
+ color:black;
+}
+
 #toDoList li {
-  
+  font-size: 20px;
   position: relative;
   display: flex;
   align-items: center;
   flex-direction: row;
   border: 1px solid;
 }
+
 #toDoList li > input {
   flex: 0 0 44px;
   width: 44px;
   height: 100px;
   opacity: 0;
 }
-ul {
-  list-style-type: none;
- }
+
 
 #toDoList li > input::before{
 content: "";
@@ -61,12 +135,15 @@ background-color: red;
 border: 1px solid;
 border-radius: 2px;
 opacity: 1;
+
 }
-#toDoList li > label {
+/*#toDoList li > label {
   flex: 1 0 10em;
 
 }
 #toDoList li > button {
   flex: 0 0 30px;
 
-}
+}*/
+
+
