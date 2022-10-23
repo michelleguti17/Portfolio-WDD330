@@ -17,5 +17,7 @@ export function onTouch(selector, callback) {
 
  export function setCallbacks(selector, callback) {
     const items =  qsAll(selector);
-    element.addEventListener("click", callback);
+    Array.from(items).forEach(item => {
+        onTouch('#' + item.id, callback);
+    });
 }
