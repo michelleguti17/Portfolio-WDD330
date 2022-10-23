@@ -78,7 +78,7 @@
 
   .counter-task{
     position: fixed;
-  left: 39%;
+  left: 50%;
   top: 45%;
   background-color: rgb(33, 124, 215);
   transform: translate(-50%, -50%);
