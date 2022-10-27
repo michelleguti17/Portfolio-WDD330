@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Week 7 Notes</h2> <br>
+    <a href="/week7/Team Activity/hiking-complete.html">Team Activity Week 7</a>
+    
+        <h3>Chapter 11 Further Functions</h3>
+
+        <p><b>Function Properties and Methods</b> The fact that functions are first-class objects means they can have properties and methods themselves. </p>
+        
+                <ol>
+                    <ul><b>length</b> property that returns the number of parameters the function has.</ul>
+                    <ul><b>call()</b> method can be used to set the value of this inside a function to an object that is provided as the first argument. </ul>
+                    <ul><b>apply()</b> method provides the arguments of the function as an array, even if there is only one argument.  </ul>
+                </ol>
+        <p><b>Memoization</b> If a function takes some time to compute a return value, we can save the result in a <b>cache</b>property. When the same argument is used again later, we can return the value from the cache, rather than having to compute the result again</p>
+        
+        <p><b>Functions that Define and Rewrite Themselves</b> It allows to define a variable it self and even redefine it.</p>
+        <p><b>Recursive Functions</b>A recursive function is one that invokes itself until a certain condition is met.</p>
+         <p><b>Callbacks</b> They are functions passed to other functions as arguments and then invoked inside the function they are passed to.</p>       
+         <p><b>Callback Hell</b> When more than one callback is used in the same function, resulting in a large number of nested blocks that are difficult to comprehend.</p>    
+         <p><b>Promises</b>When a promise is created, it calls an asynchronous operation and is then said to be pending. It remains in this state while the operation is taking place. At this stage, the promise is said to be unsettled. Once the operation has completed, the promise is said to have been settled. A settled promise can result in two different outcomes:</p>    
+                    <ol>
+                        <ul>resolve()</ul>
+                        <ul>reject()</ul>
+                    </ol>
+
+<b>Example</b>
+         <p>const promise = new Promise( (resolve, reject) => {<br>
+       
+            if (success) {<br>
+                resolve(value);<br>
+            } else {<br>
+                reject(error);<br>
+            } <br>
+        });</p>
+
+
+         <p><b>Async Functions</b> These functions are preceded by the <b>async</b> keyword and allow you to write asynchronous code as if it was synchronous. This is achieved by using the <b>await</b> operator before an asynchronous function. This will wrap the return value of the function in a promise that can then be assigned to a variable</p>    
+          
+         <p><b>Generators</b>  are special functions used to produce iterators that maintain the state of a value. To define a generator function, an asterisk symbol (*) is placed after the function declaration.</p> 
+         <p><b>High-Order functions</b>are functions that accept another function as an argument, or return another function as a result, or both.Closures are used extensively in higher-order functions as they allow us to create a generic function that can be used to then return more specific functions based on its arguments. </p>  
+         <p><b>Currying</b>A function is said to be curried when not all arguments have been supplied to the function, so it returns another function that retains the arguments already provided, and expects the remaining arguments that were omitted when the original function was called. A final result is only returned once all the expected arguments have eventually been provided.Currying relies on higher-order functions that are able to return partially applied functions. All curried functions are higher-order functions because they return a function, but not all higher-order functions are curried. </p>
+
+
+
+         
+ 
+            <h3>Chapter 13 Ajax </h3>
+
+            <p>Ajax is a technique that allows web pages to communicate asynchronously with a server, and it dynamically updates web pages without reloading.Ajax allows JavaScript to request resources from a server on behalf of the client. The resources requested are usually JSON data or small fragments of text or HTML rather than a whole web page.Therefore, a server is required when requesting resources using Ajax. Typically this involves using a server-side language, such as PHP, Ruby, Node.js, or .NET to serve the data response following an Ajax request</p>
+            
+            <p>The term 'Ajax' was coined by Jesse James Garrett in 2005. Ajax was a neat acronym that referred to the different parts of the process being used: Asynchronous JavaScript and XML.</p>
+           
+            <p><b>API</b>is a collection of methods that allows external access to another program or service.e Fetch API, is currently a living standard for requesting and sending data asynchronously across a network. The Fetch API uses promises to avoid callback hell, and also streamlines a number of concepts that had become cumbersome when using the XMLHttpRequest object.</p>
+            <p><b>Response Interface</b>Response objects have a number of properties and methods that allow us to process the response effectively.Each response object has an ok property that checks to see if the response is successful. This is based on the HTTP status code, which can be accessed using the status property.</p>
+           <ol>Status Codes
+            <ul>200: Response succesful</ul>
+            <ul>201:Resource was created</ul>
+            <ul>204: Request succesful</ul>
+            <ul>The ok property will return true if the status property is between 200 and 299.</ul>
+         
+        </ol>
+            <p><b>Redirects</b> The redirect() method can be used to redirect to another URL. It creates a new promise that resolves to the response from the redirected URL. </p>
+            <p><b>Text Response</b> The text() method takes a stream of text from the response, reads it to completion and then returns a promise that resolves to a USVSting object that can be treated as a string in JavaScript. </p>
+            <p><b>File Responses</b> The blob() method is used to read a file of raw data, such as an image or a spreadsheet. Once it has read the whole file, it returns a promise that resolves with a blob object. </p>
+            <p><b>JSON Responses</b>  JSON is probably the most common format for AJAX responses. The json() method is used to deal with these by transforming a stream of JSON data into a promise that resolves to a JavaScript object.</p>
+
+            <p><b>Request Interface</b> To have more control over the interface we use a request object as an argument.Request objects are created using the Request() constructor, and include the following properties:
+             <ol>
+                <ul>url</ul>
+                <ul>method</ul>
+                <ul>headers</ul>
+                <ul>mode</ul>
+                <ul>cache</ul>
+                <ul>credentials</ul>
+                <ul>redirect</ul>
+            
+             </ol>
+            
+            </p>
+
+            <p>Ajax allows to recieve and send information</p>
+
+            <p><b>Form Data</b>is used to submit information in forms using Ajax. A FormData instance is created using a constructor function.If a form is passed to this constructor function as an argument, the form data instance will serialize all the data automatically, ready to be sent using Ajax. </p>
+            <b>Example:</b> <br>
+            <p>const data = new FormData();</p>
+
+
+
+
+
+
+            <b>Questions</b> <br>
+         <p>How Function Scope works?</p>
+         <p>How the generator function returns an object that create an iterator and returns methods?</p>
+        <p> Can you recommend me other resources where I can learn more about Ajax and Fetch APIs in-depth?</p>
+   
+   
+    </body>
+
+
+</html>
