@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Week 10 notes</h1>
+    <a href="/week10/quakes.html">Team Activity</a>
+    <h2>Validating forms using JavaScript</h2>
+    <p>The constraint validation API consist of different methods and properties that help validate forms with Javascript. </p>
+
+    <ul> DOM Elements
+        <li>HTMLButtonElement (represents a button element)</li>
+        <li>  HTMLFieldSetElement (represents a fieldset element)</li>  
+            <li>HTMLInputElement (represents an input element)</li> 
+            <li> HTMLOutputElement (represents an output element)</li> 
+            <li>  HTMLSelectElement (represents a select element)</li> 
+            <li> HTMLTextAreaElement (represents a textarea element)</li> 
+    </ul>
+
+    <p> <b>   The following properties can be used to validate the DOM elements </b></p>
+        <ul>
+            <li>validationMessage: Returns a localized message describing the validation constraints that the control doesn't satisfy (if any). </li>
+            <br>
+            <li>validity: Returns a ValidityState object that contains several properties describing the validity state of the element. Below are listed a few of the more common ones:</li>   
+            <br>
+            <ul>
+            <li>patternMismatch: Returns true if the value does not match the specified pattern, and false if it does match. </li>
+            <li>tooLong: Returns true if the value is longer than the maximum length specified by the maxlength attribute, or false if it is shorter than or equal to the maximum. </li>
+            <li>tooShort: Returns true if the value is shorter than the minimum length specified by the minlength attribute, or false if it is greater than or equal to the minimum.</li>
+            <li>rangeOverflow: Returns true if the value is greater than the maximum specified by the max attribute, or false if it is less than or equal to the maximum. </li>
+            <li>rangeUnderflow: Returns true if the value is less than the minimum specified by the min attribute, or false if it is greater than or equal to the minimum.</li>
+            <li>typeMismatch: Returns true if the value is not in the required syntax (when type is email or url), or false if the syntax is correct.</li>
+            <li>valid: Returns true if the element meets all its validation constraints, and is therefore considered to be valid, or false if it fails any constraint.</li>
+            <li>valueMissing: Returns true if the element has a required attribute, but no value, or false otherwise.</li>
+            <li>willValidate: Returns true if the element will be validated when the form is submitted; false otherwise.</li>
+            </ul>
+                <br>
+            <ul><b>Constraint validation API Methods used with DOM elements and Forms</b> 
+                <br>
+               <li> checkValidity(): Returns true if the element's value has no validity problems; false otherwise. If the element is invalid, this method also fires an invalid event on the element. </li>
+                <li>reportValidity(): Reports invalid field(s) using events. Useful in combination with preventDefault() in an onSubmit event handler  </li>
+                <li> setCustomValidity(message): Adds a custom error message to the element; if you set a custom error message, the element is considered to be invalid, and the specified error is displayed. The message is shown to the user when reporting the problem. </li>
+            </ul>
+        </ul>
+        <h2>Fetch API</h2>
+        <p>The Fetch API provides a JavaScript interface for accessing and manipulating parts of the HTTP channel, such as requests and responses. It also provides a global fetch() method (en-US) that provides an easy and logical way to fetch resources asynchronously over the network.</p>
+        <p>The fetch specification differs from JQuery.ajax() in two main ways:
+
+            The Promise object returned from fetch() will not be rejected with an HTTP error status even if the response is a 404 or 500 HTTP error. Instead, it will be resolved normally (with an ok status set to false), and this will only be rejected due to a network failure or if something prevented the request from being completed.
+            By default, fetch will not send or receive cookies from the server, resulting in unauthenticated requests if the site allows a user session to be maintained (in order to send cookies, the init option credentials must be configured).</p>
+</body>
+</html>
