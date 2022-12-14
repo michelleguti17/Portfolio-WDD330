@@ -1,34 +1,5 @@
 
 
-            
-   /* class CommentsModel{
-        constructor(type){
-            this.type;
-            this.comments = readFromLS(this.type)  || [];
-        }
-
-        getComments(query = null){
-            if(query === null){
-                return this.comments;
-            }
-            else {
-                return this.comments.filter(element => element.name === query);
-            }
-        }
-
-        addComment(postName, comment) {
-            const newComment = {
-              name: postName,
-              comment: comment,
-              date: new Date()
-            };
-            this.comments.push(newComment);
-            writeToLS(this.type, this.comments);
-          }
-       
-
- }*/
-
  //commentModel
 class CommentModel {
     constructor(type) {
